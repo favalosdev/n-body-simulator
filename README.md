@@ -1,2 +1,3 @@
 # n-body simulator
-n-body simulator
+
+Your average N body simulator.
