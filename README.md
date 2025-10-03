@@ -1,2 +1,2 @@
-# n-body
+# n-body simulator
 n-body simulator
