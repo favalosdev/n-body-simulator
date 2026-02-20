@@ -1,3 +1,3 @@
 # n-body simulator
 
-Your average N body simulator.
+Yet another N-body simulator.
