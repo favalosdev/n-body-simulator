@@ -1,6 +1,6 @@
 #include <iostream>
 #include <SFML/Config.hpp>
-#include "utils.h"
+#include "utils.hpp"
 
 void print_sfml_info()
 {

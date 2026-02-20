@@ -1,7 +1,7 @@
 #include <SFML/Graphics.hpp>
 #include <SFML/Config.hpp>
 #include <iostream>
-#include "utils.h"
+#include "utils.hpp"
 
 const int WINDOW_WIDTH = 800;
 const int WINDOW_HEIGHT = 600;
