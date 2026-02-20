@@ -43,3 +43,6 @@
 # VSCode specific BS
 .vscode/
 build/
+
+# Workflows
+.github/
