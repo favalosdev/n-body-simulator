@@ -41,4 +41,4 @@
 *.dwo
 
 # VSCode specific BS
-.vscode/
+.vscode/**
