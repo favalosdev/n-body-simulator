@@ -2,8 +2,8 @@
 #include <SFML/Config.hpp>
 #include <iostream>
 
-const int WINDOW_HEIGHT = 800;
-const int WINDOW_WIDTH = 600;
+const int WINDOW_WIDTH = 800;
+const int WINDOW_HEIGHT = 600;
 
 void print_sfml_version()
 {
@@ -15,7 +15,7 @@ void print_sfml_version()
 
 int main()
 {
-    sf::Window window(sf::VideoMode({WINDOW_HEIGHT, WINDOW_WIDTH}), "My window");
+    sf::Window window(sf::VideoMode({WINDOW_WIDTH, WINDOW_HEIGHT}), "My window");
 
     while (window.isOpen()) {
         while (const std::optional event = window.pollEvent()) {
