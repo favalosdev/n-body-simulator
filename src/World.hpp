@@ -12,16 +12,15 @@ typedef struct {
 
 class World {
 private:
-	std::vector<Body> bodies;
+	std::vector<Body*> bodies;
 
 	void apply_forces();
-	void step();
 
 public:
 	World();
-
-	void add_body(Body b);
-	void get_bodies();
+	void add_body(Body* b);
+	void step();
+	std::vector<Body*>* get_bodies();
 };
 
 #endif

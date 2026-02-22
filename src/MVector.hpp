@@ -6,4 +6,6 @@ typedef struct {
     double y;
 } MVector;
 
+double euclidean_dist(MVector p1, MVector p2);
+
 #endif
