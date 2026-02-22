@@ -19,7 +19,7 @@ public:
 	World();
 	void add_body(const Body& b);
 	void step();
-	std::vector<Body*>& get_bodies();
+	const std::vector<Body>& get_bodies();
 };
 
 #endif
