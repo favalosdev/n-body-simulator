@@ -1,29 +1,15 @@
 #include <SFML/Graphics.hpp>
 #include <SFML/Config.hpp>
-#include <iostream>
-#include "utils.hpp"
 
-const int WINDOW_WIDTH = 800;
-const int WINDOW_HEIGHT = 600;
-
-class Body {
-public:
-	double x;
-	double y;
-	double mass;
-
-	Body(double x, double y, double mass) {
-		x = x;
-		y = y;
-		mass = mass;
-	}
-};
+#include "Utils.hpp"
+#include "Constants.hpp"
+#include "World.hpp"
 
 int main()
 {
 	print_sfml_info();
 
-	sf::RenderWindow window(sf::VideoMode( { WINDOW_WIDTH, WINDOW_HEIGHT } ), "SFML works!");
+	sf::RenderWindow window(sf::VideoMode( { WINDOW_WIDTH, WINDOW_HEIGHT } ), "N-Body Simulation");
 	sf::CircleShape shape(100.f);
 	shape.setFillColor(sf::Color::Green);
 
