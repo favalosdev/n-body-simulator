@@ -11,14 +11,10 @@ struct MVector {
         return *this;
     }
 
-    friend X operator+(X lhs, const X& rhs) {
+    friend MVector operator+(MVector lhs, const MVector& rhs) {
         lhs += rhs;
         return lhs;
     }
 };
-
-double euclidean_dist(const MVector& p1, const MVector& p2) {
-    return 1.0;
-}
 
 #endif

@@ -6,6 +6,6 @@ const int WINDOW_WIDTH = 800;
 const int WINDOW_HEIGHT = 600;
 
 // World constants
-const double G = 1.0;
+const double G = 6.67E-11;
 
 #endif

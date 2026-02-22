@@ -1,6 +1,7 @@
 #include <iostream>
 #include <SFML/Config.hpp>
 #include "Utils.hpp"
+#include <cmath>
 
 void print_sfml_info()
 {
@@ -8,4 +9,8 @@ void print_sfml_info()
               << SFML_VERSION_MAJOR << "."
               << SFML_VERSION_MINOR << "."
               << SFML_VERSION_PATCH << std::endl;
+}
+
+double euclidean_dist(double a, double b) {
+    return sqrt(pow((a - b), 2));
 }

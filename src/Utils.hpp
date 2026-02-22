@@ -3,4 +3,6 @@
 
 void print_sfml_info();
 
+double euclidean_dist(double a, double b);
+
 #endif
