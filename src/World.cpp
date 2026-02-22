@@ -27,8 +27,9 @@ void World::apply_forces() {
             if (itr != inner_itr) {
                 double m_j = inner_itr->mass;
                 MVector p_j = inner_itr->position;
-                MVector dir = p_j - p_i;
-                net_force += dir.normalized() * (((G * m_i * m_j) / pow(dir.magnitude(), 2)));
+                MVector dir = (p_j - p_i).normalized();
+                double d2 = pow(dir.magnitude(), 2);
+                net_force += dir * ((G * m_i * m_j) / d2);
             }
         }
     }
