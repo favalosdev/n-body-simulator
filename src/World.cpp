@@ -15,10 +15,9 @@ void World::add_body(const Body& b) {
     bodies.push_back(b);
 }
 
-std::vector<double> World::calc_forces(int N) {
+std::vector<MVector> World::calc_forces() {
     std::vector<Body>::iterator itr;
-    int N = bodies.size();
-    std::vector<double> forces { std::vector(N) };
+    std::vector<MVector> forces { std::vector<MVector>(bodies.size()) };
 
     for (itr = bodies.begin(); itr != bodies.end(); itr++) {
         std::vector<Body>::iterator inner_itr;
@@ -37,20 +36,18 @@ std::vector<double> World::calc_forces(int N) {
             }
         }
 
-        forces[i] = net_forces;
+        forces[i] = net_force;
     }
 
     return forces;
 }
 
-void World::apply_forces(std::vector<double>& f) {
+void World::apply_forces(std::vector<MVector>& f) {
     int N = f.size();
+
 }
 
-/*
-This might seem redundant but it's necessary in case
-more operations beyond applying forces is necessary
-*/
 void World::step() {
-    calc_forces();
+    std::vector<MVector> f = calc_forces();
+    apply_forces(f);
 }
