@@ -44,7 +44,6 @@ std::vector<MVector> World::calc_forces() {
 
 void World::apply_forces(std::vector<MVector>& f) {
     int N = f.size();
-
 }
 
 void World::step() {
