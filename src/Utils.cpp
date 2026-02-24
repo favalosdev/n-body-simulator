@@ -1,7 +1,7 @@
 #include <iostream>
 #include <SFML/Config.hpp>
+
 #include "Utils.hpp"
-#include <cmath>
 
 void print_sfml_info()
 {

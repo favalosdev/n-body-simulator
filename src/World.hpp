@@ -2,11 +2,11 @@
 #define WORLD_HPP
 
 #include <vector>
+
 #include "MVector.hpp"
 
 typedef struct {
 	MVector position;
-	MVector acceleration;
 	double mass;
 } Body;
 

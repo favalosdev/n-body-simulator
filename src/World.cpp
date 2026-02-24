@@ -1,9 +1,10 @@
-#include "World.hpp"
-#include "Constants.hpp"
-#include "Utils.hpp"
 #include <iterator>
 #include <vector>
 #include <iostream>
+
+#include "World.hpp"
+#include "Constants.hpp"
+#include "Utils.hpp"
 
 World::World() {
     std::vector<Body> init {};
@@ -16,6 +17,8 @@ void World::add_body(const Body& b) {
 
 void World::apply_forces() {
     std::vector<Body>::iterator itr;
+    int N = bodies.size();
+    double forces[N][N];
 
     for (itr = bodies.begin(); itr != bodies.end(); itr++) {
         std::vector<Body>::iterator inner_itr;
@@ -35,6 +38,10 @@ void World::apply_forces() {
     }
 }
 
+/*
+This might seem redundant but it's necessary in case
+more operations beyond applying forces is necessary
+*/
 void World::step() {
     apply_forces();
 }

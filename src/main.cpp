@@ -11,7 +11,7 @@ int main()
 
 	sf::RenderWindow window(sf::VideoMode( { WINDOW_WIDTH, WINDOW_HEIGHT } ), "N-Body Simulation");
 	sf::CircleShape shape(100.f);
-	shape.setFillColor(sf::Color::Green);
+	shape.setFillColor(sf::Color::Red);
 
 	while (window.isOpen()) {
 		while (const std::optional event = window.pollEvent()) {
