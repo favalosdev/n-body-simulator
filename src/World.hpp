@@ -13,7 +13,8 @@ typedef struct {
 class World {
 private:
 	std::vector<Body> bodies;
-	void apply_forces();
+	std::vector<double> calc_forces();
+	void apply_forces(std::vector<double>& f);
 
 public:
 	World();
