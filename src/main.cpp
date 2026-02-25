@@ -5,15 +5,25 @@
 #include "Constants.hpp"
 #include "World.hpp"
 
+void setup(World& world) {
+	Body b1;
+	b1.position.x = 0.0;
+	b1.position.y = 0.0;
+
+	Body b2;
+	b2.position.x = 5.0;
+	b2.position.y = 0.0;
+
+	world.add_body(b1);
+	world.add_body(b2);
+}
+
 int main()
 {
 	print_sfml_info();
 
 	World world;
-	Body sun;
-
-	world.add_body(sun);
-	world.step();
+	setup(world);
 
 	sf::RenderWindow window(sf::VideoMode( { WINDOW_WIDTH, WINDOW_HEIGHT } ), "N-Body Simulation");
 	sf::CircleShape shape(100.f);

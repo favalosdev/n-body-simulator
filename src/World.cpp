@@ -29,8 +29,9 @@ std::vector<MVector> World::calc_forces() {
             if (itr != inner_itr) {
                 double m_j = inner_itr->mass;
                 MVector p_j = inner_itr->position;
-                MVector dir = (p_j - p_i).normalized();
-                double d2 = pow(dir.magnitude(), 2);
+                MVector diff = p_j - p_i;
+                MVector dir = diff.direction();
+                double d2 = pow(diff.magnitude(), 2);
                 net_force += dir * ((G * m_i * m_j) / d2);
             }
         }
@@ -43,7 +44,16 @@ std::vector<MVector> World::calc_forces() {
 }
 
 void World::apply_forces(std::vector<MVector>& f) {
-    int N = f.size();
+    int N = bodies.size();
+    std::vector<Body>::iterator itr;
+    
+    for (itr = bodies.begin(); itr != bodies.end(); itr++) {
+        size_t i = itr - bodies.begin();
+        MVector force = f[i];
+        MVector acceleration = force * (1.0 / itr->mass);
+        itr->velocity += acceleration * TIME_DELTA;
+        itr->position += itr->velocity * TIME_DELTA;
+    } 
 }
 
 void World::step() {

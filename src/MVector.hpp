@@ -35,7 +35,7 @@ struct MVector {
         return lhs;
     }
 
-    MVector normalized() {
+    MVector direction() {
         double m = this->magnitude();
         MVector v;
         v.x = this->x / m;

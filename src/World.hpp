@@ -2,12 +2,19 @@
 #define WORLD_HPP
 
 #include <vector>
+#include <cmath>
 
 #include "MVector.hpp"
 
 typedef struct {
+	MVector velocity;
 	MVector position;
 	double mass;
+	double density;
+
+	double calc_radius() {
+		return cbrt((3 * mass)/(4 * M_PI * density));
+	}
 } Body;
 
 class World {
