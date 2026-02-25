@@ -50,7 +50,7 @@ void World::apply_forces(std::vector<MVector>& f) {
         size_t i = itr - bodies.begin();
         MVector force = f[i];
         MVector a = force * (1.0 / itr->mass);
-        itr->r += (itr->v0 * TIME_DELTA)+ (a * (pow(TIME_DELTA, 2) * 0.5));
+        itr->r += (itr->v0 * TIME_DELTA) + (a * (pow(TIME_DELTA, 2) * 0.5));
     } 
 }
 
