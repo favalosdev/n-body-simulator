@@ -9,10 +9,14 @@ void setup(World& world) {
 	Body b1;
 	b1.r.x = 0.0;
 	b1.r.y = 0.0;
+	b1.mass = 1.0;
+	b1.density = 1.0;
 
 	Body b2;
 	b2.r.x = 5.0;
 	b2.r.y = 0.0;
+	b2.mass = 1.0;
+	b2.density = 1.0;
 
 	world.add_body(b1);
 	world.add_body(b2);
