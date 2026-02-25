@@ -7,8 +7,8 @@
 #include "MVector.hpp"
 
 typedef struct {
-	MVector velocity;
-	MVector position;
+	MVector v0;
+	MVector r;
 	double mass;
 	double density;
 
