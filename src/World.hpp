@@ -13,7 +13,7 @@ typedef struct {
 	double density;
 
 	double calc_radius() {
-		return cbrt((3 * mass)/(4 * M_PI * density));
+		return cbrt((3 * mass) / (4 * M_PI * density));
 	}
 } Body;
 
