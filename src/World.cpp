@@ -6,29 +6,24 @@
 #include "Constants.hpp"
 #include "Utils.hpp"
 
-World::World() {
-    std::vector<Body> init {};
-    bodies = init;
-}
-
 void World::add_body(const Body& b) {
     bodies.push_back(b);
 }
 
 std::vector<MVector> World::calc_forces() {
-    std::vector<Body>::iterator itr;
+    std::vector<Body>::iterator it;
     std::vector<MVector> forces { std::vector<MVector>(bodies.size()) };
 
-    for (itr = bodies.begin(); itr != bodies.end(); itr++) {
-        std::vector<Body>::iterator inner_itr;
+    for (it = bodies.begin(); it != bodies.end(); ++it) {
+        std::vector<Body>::iterator inner_it;
         MVector net_force;
-        double m_i = itr->mass;
-        MVector r_i = itr->r;
+        double m_i = it->mass;
+        MVector r_i = it->r;
 
-        for (inner_itr = bodies.begin(); inner_itr != bodies.end(); inner_itr++) {
-            if (itr != inner_itr) {
-                double m_j = inner_itr->mass;
-                MVector r_j = inner_itr->r;
+        for (inner_it = bodies.begin(); inner_it != bodies.end(); ++inner_it) {
+            if (it != inner_it) {
+                double m_j = inner_it->mass;
+                MVector r_j = inner_it->r;
                 MVector diff = r_j - r_i;
                 MVector dir = diff.direction();
                 double d2 = pow(diff.magnitude(), 2);
@@ -36,7 +31,7 @@ std::vector<MVector> World::calc_forces() {
             }
         }
 
-        size_t i = itr - bodies.begin();
+        size_t i = it - bodies.begin();
         forces[i] = net_force;
     }
 
@@ -44,13 +39,13 @@ std::vector<MVector> World::calc_forces() {
 }
 
 void World::apply_forces(std::vector<MVector>& f) {
-    std::vector<Body>::iterator itr;
+    std::vector<Body>::iterator it;
     
-    for (itr = bodies.begin(); itr != bodies.end(); itr++) {
-        size_t i = itr - bodies.begin();
+    for (it = bodies.begin(); it != bodies.end(); ++it) {
+        size_t i = it - bodies.begin();
         MVector force = f[i];
-        MVector a = force * (1.0 / itr->mass);
-        itr->r += (itr->v0 * TIME_DELTA) + (a * (pow(TIME_DELTA, 2) * 0.5));
+        MVector a = force * (1.0 / it->mass);
+        it->r += (it->v0 * TIME_DELTA) + (a * (pow(TIME_DELTA, 2) * 0.5));
     } 
 }
 

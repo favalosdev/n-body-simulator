@@ -19,12 +19,11 @@ typedef struct {
 
 class World {
 private:
-	std::vector<Body> bodies;
 	std::vector<MVector> calc_forces();
 	void apply_forces(std::vector<MVector>& f);
 
 public:
-	World();
+	std::vector<Body> bodies {};
 	void add_body(const Body& b);
 	void step();
 	const std::vector<Body>& get_bodies();

@@ -22,6 +22,17 @@ void setup(World& world) {
 	world.add_body(b2);
 }
 
+void draw_bodies(World& world, sf::RenderWindow& window) {
+	std::vector<Body>::iterator it;
+	std::vector<Body> bodies = world.bodies;
+
+	for (it = bodies.begin(); it != bodies.end(); ++it) {
+		sf::CircleShape shape(it->calc_radius());
+		shape.setFillColor(sf::Color::Green);
+		window.draw(shape);
+	}
+}
+
 int main()
 {
 	print_sfml_info();
@@ -30,8 +41,6 @@ int main()
 	setup(world);
 
 	sf::RenderWindow window(sf::VideoMode( { WINDOW_WIDTH, WINDOW_HEIGHT } ), "N-Body Simulation");
-	sf::CircleShape shape(100.f);
-	shape.setFillColor(sf::Color::Red);
 
 	while (window.isOpen()) {
 		while (const std::optional event = window.pollEvent()) {
@@ -41,7 +50,7 @@ int main()
 		}
 
 		window.clear();
-		window.draw(shape);
+		draw_bodies(world, window);
 		window.display();
 	}
 }
