@@ -4,7 +4,7 @@ Yet another N-body simulator.
 
 ## Quick start
 
-### Command line
+### Linux
 
 1. If you use Linux, install SFML's dependencies using your system package manager. On Ubuntu and other Debian-based distributions you can use the following commands:
    ```
@@ -37,7 +37,7 @@ Yet another N-body simulator.
 
 3. Enjoy!
 
-### Visual Studio
+### Windows
 
 Using a Visual Studio workspace is the simplest way to get started on windows.
 
