@@ -6,11 +6,13 @@
 #include "Constants.hpp"
 #include "Utils.hpp"
 
-void World::add_body(const Body& b) {
+void World::add_body(const Body& b)
+{
     bodies.push_back(b);
 }
 
-std::vector<MVector> World::calc_forces() {
+std::vector<MVector> World::calc_forces()
+{
     std::vector<Body>::iterator it;
     std::vector<MVector> forces { std::vector<MVector>(bodies.size()) };
 
@@ -38,7 +40,8 @@ std::vector<MVector> World::calc_forces() {
     return forces;
 }
 
-void World::apply_forces(std::vector<MVector>& f) {
+void World::apply_forces(std::vector<MVector>& f)
+{
     std::vector<Body>::iterator it;
     
     for (it = bodies.begin(); it != bodies.end(); ++it) {
@@ -49,7 +52,8 @@ void World::apply_forces(std::vector<MVector>& f) {
     } 
 }
 
-void World::step() {
+void World::step()
+{
     std::vector<MVector> f = calc_forces();
     apply_forces(f);
 }
