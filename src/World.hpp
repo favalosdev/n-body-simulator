@@ -17,7 +17,7 @@ typedef struct {
 	float density;
 
 	// UI properties
-	sf::Color colour = COLOURS[rand() % sizeof(COLOURS)];
+	sf::Color colour;
 
 	float calc_radius()
 	{

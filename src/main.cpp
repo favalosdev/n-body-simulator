@@ -2,9 +2,15 @@
 #include <SFML/Graphics.hpp>
 #include <SFML/Config.hpp>
 
-#include "Utils.hpp"
 #include "Constants.hpp"
+#include "Utils.hpp"
 #include "World.hpp"
+
+sf::Color get_random_colour() {
+	// TODO: fix
+	// return COLOURS[rand() % sizeof(COLOURS)];
+	return sf::Color::White;
+}
 
 void setup(World& world)
 {
@@ -13,6 +19,7 @@ void setup(World& world)
 	b1.r.y = 0.0;
 	b1.mass = 20000.0;
 	b1.density = 0.001;
+	b1.colour = get_random_colour(); 
 	world.add_body(b1);
 
 	Body b2;
@@ -20,6 +27,7 @@ void setup(World& world)
 	b2.r.y = 0.0;
 	b2.mass = 20000.0;
 	b2.density = 0.001;
+	b2.colour = get_random_colour();
 	world.add_body(b2);
 
 	Body b3;
@@ -27,6 +35,7 @@ void setup(World& world)
 	b3.r.y = 200.0;
 	b3.mass = 20000.0;
 	b3.density = 0.001;
+	b3.colour = get_random_colour();
 	world.add_body(b3);
 }
 
@@ -72,7 +81,7 @@ int main()
 	World world;
 	setup(world);
 
-	sf::RenderWindow window(sf::VideoMode( { WINDOW_WIDTH, WINDOW_HEIGHT } ), "N-Body Simulation");
+	sf::RenderWindow window(sf::VideoMode({ WINDOW_WIDTH, WINDOW_HEIGHT }), "N-Body Simulation");
 
 	while (window.isOpen()) {
 		while (const std::optional event = window.pollEvent()) {
@@ -83,7 +92,7 @@ int main()
 			}
 		}
 
-		window.clear(sf::Color::Black);
+		window.clear(BACKGROUND_COLOUR);
 		draw_bodies(world, window);
 		window.display();
 	}

@@ -19,4 +19,6 @@ const sf::Color COLOURS[5] = {
     sf::Color::Yellow
 };
 
+const sf::Color BACKGROUND_COLOUR = sf::Color::Black;
+
 #endif
