@@ -1,6 +1,6 @@
+#include <iostream>
 #include <iterator>
 #include <vector>
-#include <iostream>
 
 #include "World.hpp"
 #include "Constants.hpp"
@@ -55,5 +55,11 @@ void World::apply_forces(std::vector<MVector>& f)
 void World::step()
 {
     std::vector<MVector> f = calc_forces();
+    
+    /*
+    for (auto i: f)
+        std::cout << i.magnitude() << ' ';
+    */
+
     apply_forces(f);
 }
