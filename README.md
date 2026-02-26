@@ -4,9 +4,9 @@ Yet another N-body simulator.
 
 ## Quick start
 
-### Linux
+### GNU/Linux
 
-1. If you use Linux, install SFML's dependencies using your system package manager. On Ubuntu and other Debian-based distributions you can use the following commands:
+1. Install SFML's dependencies using your system package manager. On Ubuntu and other Debian-based distributions you can use the following commands:
    ```
    sudo apt update
    sudo apt install \
