@@ -17,16 +17,16 @@ std::vector<MVector> World::calc_forces() {
     for (it = bodies.begin(); it != bodies.end(); ++it) {
         std::vector<Body>::iterator inner_it;
         MVector net_force;
-        double m_i = it->mass;
+        float m_i = it->mass;
         MVector r_i = it->r;
 
         for (inner_it = bodies.begin(); inner_it != bodies.end(); ++inner_it) {
             if (it != inner_it) {
-                double m_j = inner_it->mass;
+                float m_j = inner_it->mass;
                 MVector r_j = inner_it->r;
                 MVector diff = r_j - r_i;
                 MVector dir = diff.direction();
-                double d2 = pow(diff.magnitude(), 2);
+                float d2 = pow(diff.magnitude(), 2);
                 net_force += dir * ((G * m_i * m_j) / d2);
             }
         }

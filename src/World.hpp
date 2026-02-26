@@ -9,10 +9,10 @@
 typedef struct {
 	MVector v0;
 	MVector r;
-	double mass;
-	double density;
+	float mass;
+	float density;
 
-	double calc_radius() {
+	float calc_radius() {
 		return cbrt((3 * mass) / (4 * M_PI * density));
 	}
 } Body;
