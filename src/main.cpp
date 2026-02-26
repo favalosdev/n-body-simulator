@@ -13,21 +13,20 @@ void setup(World& world)
 	b1.r.y = 0.0;
 	b1.mass = 20000.0;
 	b1.density = 0.001;
+	world.add_body(b1);
 
 	Body b2;
-	b2.r.x = 5.0;
+	b2.r.x = 200.0;
 	b2.r.y = 0.0;
-	b2.mass = 15000.0;
+	b2.mass = 20000.0;
 	b2.density = 0.001;
+	world.add_body(b2);
 
 	Body b3;
-	b3.r.x = 10.0;
-	b3.r.y = 0.0;
-	b3.mass = 18000.0;
+	b3.r.x = 0.0;
+	b3.r.y = 200.0;
+	b3.mass = 20000.0;
 	b3.density = 0.001;
-
-	world.add_body(b1);
-	world.add_body(b2);
 	world.add_body(b3);
 }
 
@@ -40,12 +39,11 @@ Stuff that's pending:
 
 void draw_bodies(World& world, sf::RenderWindow& window)
 {
-	std::vector<Body> bodies = world.bodies;
-
-	for (auto& element : bodies) {
-		float radius = element.calc_radius();
+	for (auto& b : world.bodies) {
+		float radius = b.calc_radius();
 		sf::CircleShape shape(radius);
-		shape.setFillColor(sf::Color::Red);
+		shape.setFillColor(b.colour);
+		shape.setPosition({ b.r.x, b.r.y });
 		window.draw(shape);
 	}
 }
@@ -58,7 +56,6 @@ void handle_key_press(sf::Window& window, World& world, const auto* keyPressed)
 			break;
 
 		case sf::Keyboard::Scancode::E:
-			std::cout << "Evolving world" << std::endl;
 			world.step();
 			break;
 
@@ -69,6 +66,7 @@ void handle_key_press(sf::Window& window, World& world, const auto* keyPressed)
 
 int main()
 {
+	srand(time(NULL));
 	print_sfml_info();
 
 	World world;
@@ -85,7 +83,7 @@ int main()
 			}
 		}
 
-		window.clear(sf::Color::White);
+		window.clear(sf::Color::Black);
 		draw_bodies(world, window);
 		window.display();
 	}

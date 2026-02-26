@@ -3,14 +3,21 @@
 
 #include <vector>
 #include <cmath>
+#include <ctime>
+#include <cstdlib>
 
 #include "MVector.hpp"
+#include "Constants.hpp"
 
 typedef struct {
+	// Physical-only properties
 	MVector v0;
 	MVector r;
 	float mass;
 	float density;
+
+	// UI properties
+	sf::Color colour = COLOURS[rand() % sizeof(COLOURS)];
 
 	float calc_radius()
 	{
