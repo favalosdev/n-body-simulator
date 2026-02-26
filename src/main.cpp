@@ -50,6 +50,23 @@ void draw_bodies(World& world, sf::RenderWindow& window)
 	}
 }
 
+void handle_key_press(sf::Window& window, World& world, const auto* keyPressed)
+{
+	switch (keyPressed->scancode) {
+		case sf::Keyboard::Scancode::Escape:
+			window.close();
+			break;
+
+		case sf::Keyboard::Scancode::E:
+			std::cout << "Evolving world" << std::endl;
+			world.step();
+			break;
+
+		default:
+			break;
+	}
+}
+
 int main()
 {
 	print_sfml_info();
@@ -64,9 +81,7 @@ int main()
 			if (event->is<sf::Event::Closed>()) {
 				window.close();
 			} else if (const auto* keyPressed = event->getIf<sf::Event::KeyPressed>()) {
-            	if (keyPressed->scancode == sf::Keyboard::Scancode::Escape) {
-                	window.close();
-        		}
+				handle_key_press(window, world, keyPressed);
 			}
 		}
 

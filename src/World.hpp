@@ -27,7 +27,6 @@ public:
 	std::vector<Body> bodies {};
 	void add_body(const Body& b);
 	void step();
-	const std::vector<Body>& get_bodies();
 };
 
 #endif
