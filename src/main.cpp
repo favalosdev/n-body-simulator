@@ -1,4 +1,4 @@
-#include<iostream>
+#include <iostream>
 #include <SFML/Graphics.hpp>
 #include <SFML/Config.hpp>
 
@@ -17,7 +17,7 @@ void setup(World& world)
 	Body b1;
 	b1.r.x = 0.0;
 	b1.r.y = 0.0;
-	b1.mass = 20000.0;
+	b1.mass = 200.0;
 	b1.density = 0.001;
 	b1.colour = get_random_colour(); 
 	world.add_body(b1);
@@ -25,7 +25,7 @@ void setup(World& world)
 	Body b2;
 	b2.r.x = 200.0;
 	b2.r.y = 0.0;
-	b2.mass = 20000.0;
+	b2.mass = 200.0;
 	b2.density = 0.001;
 	b2.colour = get_random_colour();
 	world.add_body(b2);
@@ -33,7 +33,7 @@ void setup(World& world)
 	Body b3;
 	b3.r.x = 0.0;
 	b3.r.y = 200.0;
-	b3.mass = 20000.0;
+	b3.mass = 200.0;
 	b3.density = 0.001;
 	b3.colour = get_random_colour();
 	world.add_body(b3);
@@ -52,7 +52,8 @@ void draw_bodies(World& world, sf::RenderWindow& window)
 		float radius = b.calc_radius();
 		sf::CircleShape shape(radius);
 		shape.setFillColor(b.colour);
-		shape.setPosition({ b.r.x, b.r.y });
+		sf::Vector2f pos = { b.r.x + WINDOW_WIDTH / 2, WINDOW_HEIGHT / 2 - b.r.y };
+		shape.setPosition(pos);
 		window.draw(shape);
 	}
 }
