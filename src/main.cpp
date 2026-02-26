@@ -6,7 +6,8 @@
 #include "Constants.hpp"
 #include "World.hpp"
 
-void setup(World& world) {
+void setup(World& world)
+{
 	Body b1;
 	b1.r.x = 0.0;
 	b1.r.y = 0.0;
@@ -30,7 +31,15 @@ void setup(World& world) {
 	world.add_body(b3);
 }
 
-void draw_bodies(World& world, sf::RenderWindow& window) {
+/*
+Stuff that's pending:
+1. Modify the main window's coordinate system
+2. Place bodies according to their actual coordinates
+3. Simulate small steps to see if everything is working
+*/
+
+void draw_bodies(World& world, sf::RenderWindow& window)
+{
 	std::vector<Body> bodies = world.bodies;
 
 	for (auto& element : bodies) {
@@ -54,10 +63,14 @@ int main()
 		while (const std::optional event = window.pollEvent()) {
 			if (event->is<sf::Event::Closed>()) {
 				window.close();
+			} else if (const auto* keyPressed = event->getIf<sf::Event::KeyPressed>()) {
+            	if (keyPressed->scancode == sf::Keyboard::Scancode::Escape) {
+                	window.close();
+        		}
 			}
 		}
 
-		window.clear();
+		window.clear(sf::Color::White);
 		draw_bodies(world, window);
 		window.display();
 	}
