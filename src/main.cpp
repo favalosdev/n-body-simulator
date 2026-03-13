@@ -45,7 +45,10 @@ void draw_bodies(World& world, sf::RenderWindow& window)
 		float radius = b.calc_radius();
 		sf::CircleShape shape(radius);
 		shape.setFillColor(b.colour);
-		sf::Vector2f pos = { (WINDOW_WIDTH / 2) + b.r.x - radius, (WINDOW_HEIGHT / 2) - b.r.y - radius };
+		sf::Vector2f pos = {
+			(WINDOW_WIDTH / 2) + b.r.x - radius,
+			(WINDOW_HEIGHT / 2) - b.r.y - radius
+		};
 		shape.setPosition(pos);
 		window.draw(shape);
 	}
@@ -69,7 +72,6 @@ void handle_key_press(sf::Window& window, World& world, const auto* keyPressed)
 
 int main()
 {
-	srand(time(NULL));
 	print_sfml_info();
 
 	World world;

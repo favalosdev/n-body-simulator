@@ -48,7 +48,7 @@ void World::apply_forces(const std::vector<MVector>& f)
         size_t i = it - bodies.begin();
         MVector force = f[i];
         MVector a = force * (1.0 / it->mass);
-        // TODO: review position update
+        // TODO: review this ASAP
         it->r += (it->v0 * TIME_DELTA) + (a * (pow(TIME_DELTA, 2) * 0.5));
     }
 }
@@ -56,7 +56,5 @@ void World::apply_forces(const std::vector<MVector>& f)
 void World::step()
 {
     std::vector<MVector> f = calc_forces();
-    
-
     apply_forces(f);
 }
