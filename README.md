@@ -1,6 +1,6 @@
-# n-body simulator
+# 2d-n-body
 
-Yet another N-body simulator.
+Yet another 2D N-body simulator.
 
 ## Quick start
 

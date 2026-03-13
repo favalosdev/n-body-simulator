@@ -7,7 +7,7 @@
 #include "World.hpp"
 
 sf::Color get_random_colour() {
-	// TODO: fix
+	// TODO: fix random color generation
 	// return COLOURS[rand() % sizeof(COLOURS)];
 	return sf::Color::White;
 }
@@ -45,7 +45,7 @@ void draw_bodies(World& world, sf::RenderWindow& window)
 		float radius = b.calc_radius();
 		sf::CircleShape shape(radius);
 		shape.setFillColor(b.colour);
-		sf::Vector2f pos = { b.r.x + WINDOW_WIDTH / 2 - radius, WINDOW_HEIGHT / 2 - b.r.y - radius };
+		sf::Vector2f pos = { (WINDOW_WIDTH / 2) + b.r.x - radius, (WINDOW_HEIGHT / 2) - b.r.y - radius };
 		shape.setPosition(pos);
 		window.draw(shape);
 	}

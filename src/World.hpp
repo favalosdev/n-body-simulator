@@ -3,8 +3,6 @@
 
 #include <vector>
 #include <cmath>
-#include <ctime>
-#include <cstdlib>
 
 #include "MVector.hpp"
 #include "Constants.hpp"
@@ -28,7 +26,7 @@ typedef struct {
 class World {
 private:
 	std::vector<MVector> calc_forces();
-	void apply_forces(std::vector<MVector>& f);
+	void apply_forces(const std::vector<MVector>& f);
 
 public:
 	std::vector<Body> bodies {};
